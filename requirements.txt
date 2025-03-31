@@ -1,0 +1,9 @@
+Flask
+tensorflow
+keras
+librosa
+numpy
+scipy
+pandas
+scikit-learn
+gunicorn
