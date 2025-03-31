@@ -21,12 +21,9 @@ DeepFake Audio Detection is a deep learning project designed to identify fake or
 ```
 DeepFake_Audio/
 ├── .idea/                     # IDE configuration files
-├── DEMONSTRATION/             # Demonstration audio files (ignored)
-├── KAGGLE/                    # Datasets from Kaggle (ignored)
-├── sequence_env/              # Virtual environment (ignored)
 ├── static/                    # Static files (e.g., CSS, JS)
 ├── templates/                 # HTML templates
-├── uploaded_files/            # User-uploaded audio files (ignored)
+├── uploaded_files/            # User-uploaded audio files (auto-created when uploading)
 ├── app.py                     # Main Flask application
 ├── model.h5                   # Trained deep learning model (ignored)
 ├── processData.py             # Data processing and feature extraction
