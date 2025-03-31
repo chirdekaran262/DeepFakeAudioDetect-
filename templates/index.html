@@ -21,6 +21,16 @@
         </div>
     </div>
 
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    <div id="flash-messages" class="flash-messages">
+        {% for category, message in messages %}
+        <div class="{{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
     <div class="hero">
         <h1>Detect Fake Audio with AI</h1>
         <p>Upload an audio file to analyze whether it is real or deepfake.</p>

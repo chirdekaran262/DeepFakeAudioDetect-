@@ -2,7 +2,7 @@ import os
 import numpy as np
 import librosa
 import tensorflow as tf
-from flask import Flask, request, render_template, flash, jsonify
+from flask import Flask, request, render_template, flash
 from werkzeug.utils import secure_filename
 
 # Get absolute path for model.h5
@@ -28,12 +28,14 @@ SAMPLE_RATE = 16000
 DURATION = 5
 TARGET_SAMPLES = SAMPLE_RATE * DURATION
 
+
 def allowed_file(filename):
     """Check if file extension is allowed."""
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
 def extract_features(file_path):
-    """Extract audio features for prediction."""
+    """Extract audio features for prediction"""
     try:
         audio, _ = librosa.load(file_path, sr=SAMPLE_RATE)
         
@@ -62,6 +64,7 @@ def extract_features(file_path):
     except Exception as e:
         raise ValueError(f"Error processing audio: {str(e)}")
 
+
 @app.route("/", methods=["GET", "POST"])
 def upload_file():
     if request.method == "POST":
@@ -86,14 +89,14 @@ def upload_file():
             features = extract_features(filepath)
             prediction = model.predict(features)[0][0]
             result = "Fake" if prediction > 0.5 else "Real"
-            flash("File uploaded and analyzed successfully!", "success")
         except Exception as e:
             result = f"Error processing file: {str(e)}"
             flash(result, "error")
 
-        return render_template("index.html", result=result, filename=filename)
+        return {"message": result}
 
     return render_template("index.html", result=None)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
