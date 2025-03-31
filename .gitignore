@@ -1,0 +1,72 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+env/
+venv/
+sequence_env/
+
+# Flask uploads
+uploaded_files/
+
+# TensorFlow/Deep Learning model files
+*.h5
+*.pb
+
+# Logs and debugging files
+*.log
+
+# Configuration files
+config.json
+
+# Data files
+*.csv
+*.tsv
+*.db
+*.sqlite3
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Git-specific files
+.git/
+
+
+# Ignore audio files
+*.wav
+*.mp3
+*.flac
+*.ogg
+
+# Ignore the uploaded_files directory (if applicable)
+uploaded_files/
+
+# Ignore environment files
+.idea/
+sequence_env/
+
+# Ignore datasets and demonstration files
+KAGGLE/
+DEMONSTRATION/
+uploaded_files/
+
+# Ignore large model files
+model.h5
+processed_celebrit y_voices.h5
+
+# Ignore static files (if they are large)
+static/

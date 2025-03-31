@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Detect deepfake audio using AI. Upload a file to analyze whether it's real or fake.">
+    <meta name="keywords" content="Deepfake, AI, Audio Detection, Fake Audio">
+    <title>Deepfake Audio Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <h2>Deepfake Detector</h2>
+        <div>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>Detect Fake Audio with AI</h1>
+        <p>Upload an audio file to analyze whether it is real or deepfake.</p>
+
+        <div class="upload-container">
+            <h3>Upload Your Audio</h3>
+            <div id="flash-messages" class="flash-messages"></div>
+            <div class="upload-box">
+                <form id="uploadForm" action="/" method="post" enctype="multipart/form-data">
+                    <label for="file-upload" class="custom-file-upload">
+                        <i class="fa fa-upload"></i> Choose File
+                    </label>
+                    <input id="file-upload" type="file" name="audio" required>
+                    <button type="submit">Upload & Analyze</button>
+                </form>
+            </div>
+            <div id="loading" class="loading" style="display: none;">Analyzing...</div>
+            <div id="result-box" class="result-box" style="display: none;"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Deepfake Detector | All rights reserved.</p>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
