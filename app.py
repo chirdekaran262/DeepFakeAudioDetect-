@@ -68,32 +68,29 @@ def extract_features(file_path):
 @app.route("/", methods=["GET", "POST"])
 def upload_file():
     if request.method == "POST":
-        # Get file from form
         file = request.files.get("audio")
 
         if not file or not file.filename:
             flash("No file selected. Please upload an audio file.", "error")
-            return render_template("index.html", result=None)
+            return {"success": False, "error": "No file selected. Please upload an audio file."}
 
         if not allowed_file(file.filename):
             flash("Invalid file type. Allowed formats: WAV, MP3, FLAC.", "error")
-            return render_template("index.html", result=None)
+            return {"success": False, "error": "Invalid file type. Allowed formats: WAV, MP3, FLAC."}
 
-        # Save file
         filename = secure_filename(file.filename)
         filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
         file.save(filepath)
 
         try:
-            # Extract features and predict
             features = extract_features(filepath)
             prediction = model.predict(features)[0][0]
             result = "Fake" if prediction > 0.5 else "Real"
+            return {"success": True, "prediction": result}
         except Exception as e:
-            result = f"Error processing file: {str(e)}"
-            flash(result, "error")
-
-        return {"message": result}
+            error_message = f"Error processing file: {str(e)}"
+            flash(error_message, "error")
+            return {"success": False, "error": error_message}
 
     return render_template("index.html", result=None)
 

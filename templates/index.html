@@ -9,51 +9,125 @@
     <meta name="keywords" content="Deepfake, AI, Audio Detection, Fake Audio">
     <title>Deepfake Audio Detection</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
     <div class="navbar">
-        <h2>Deepfake Detector</h2>
-        <div>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+        <div class="logo">
+            <i class="fas fa-shield-alt"></i>
+            <h2>Deepfake Detector</h2>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+            <a href="#"><i class="fas fa-info-circle"></i> About</a>
+            <a href="#"><i class="fas fa-envelope"></i> Contact</a>
         </div>
     </div>
 
-    {% with messages = get_flashed_messages(with_categories=True) %}
-    {% if messages %}
-    <div id="flash-messages" class="flash-messages">
-        {% for category, message in messages %}
-        <div class="{{ category }}">{{ message }}</div>
-        {% endfor %}
-    </div>
-    {% endif %}
-    {% endwith %}
-
     <div class="hero">
-        <h1>Detect Fake Audio with AI</h1>
-        <p>Upload an audio file to analyze whether it is real or deepfake.</p>
+        <div class="hero-content">
+            <h1>Detect <span class="highlight">Fake Audio</span> with AI</h1>
+            <p class="subtitle">Our advanced AI technology can identify deepfake audio with high accuracy. Upload your
+                file to get started.</p>
 
-        <div class="upload-container">
-            <h3>Upload Your Audio</h3>
-            <div id="flash-messages" class="flash-messages"></div>
-            <div class="upload-box">
-                <form id="uploadForm" action="/" method="post" enctype="multipart/form-data">
-                    <label for="file-upload" class="custom-file-upload">
-                        <i class="fa fa-upload"></i> Choose File
-                    </label>
-                    <input id="file-upload" type="file" name="audio" required>
-                    <button type="submit">Upload & Analyze</button>
-                </form>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Fast Analysis</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <span>Secure Upload</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <span>High Accuracy</span>
+                </div>
             </div>
-            <div id="loading" class="loading" style="display: none;">Analyzing...</div>
-            <div id="result-box" class="result-box" style="display: none;"></div>
+
+            <div class="upload-container">
+                <h3><i class="fas fa-headphones"></i> Upload Your Audio</h3>
+                <div id="flash-messages" class="flash-messages"></div>
+                <div class="upload-box">
+                    <form id="uploadForm" action="/" method="post" enctype="multipart/form-data">
+                        <div class="file-area">
+                            <label for="file-upload" class="custom-file-upload">
+                                <i class="fas fa-cloud-upload-alt"></i> Choose File
+                            </label>
+                            <span id="file-name">No file chosen</span>
+                            <input id="file-upload" type="file" name="audio" accept="audio/*" required>
+                        </div>
+                        <button type="submit" class="analyze-btn"><i class="fas fa-microscope"></i> Analyze
+                            Audio</button>
+                    </form>
+                </div>
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <span>Analyzing your audio...</span>
+                </div>
+                <div id="result-box" class="result-box">
+                    <div class="result-icon"></div>
+                    <div class="result-text"></div>
+                    <div class="confidence-meter">
+                        <div class="confidence-bar"></div>
+                        <span class="confidence-label">Confidence Level</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-file-audio"></i></div>
+                <h3>Upload</h3>
+                <p>Upload your audio file (MP3, WAV, etc.)</p>
+            </div>
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-cogs"></i></div>
+                <h3>Process</h3>
+                <p>Our AI analyzes audio patterns</p>
+            </div>
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                <h3>Results</h3>
+                <p>Get accurate detection results</p>
+            </div>
         </div>
     </div>
 
     <div class="footer">
-        <p>&copy; 2025 Deepfake Detector | All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Deepfake Detector</h3>
+                <p>Fighting misinformation with advanced AI technology.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> info@deepfakedetector.com</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Deepfake Detector | All rights reserved.</p>
+        </div>
     </div>
 
     <script src="/static/script.js"></script>
