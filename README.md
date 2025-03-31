@@ -35,6 +35,9 @@ DeepFake_Audio/
 └── .gitignore                 # Git ignore file
 ```
 
+```The dataset used in this project is not uploaded to the repository. Please download the dataset from Kaggle and place it in the appropriate folder. Additionally, to run the model, download the pre-trained .h5 file and place it in the project directory.```
+
+
 ## Setup and Installation
 1. Clone the repository:
    ```bash
