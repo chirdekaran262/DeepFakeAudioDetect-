@@ -1,5 +1,5 @@
 
-# DeepFake Audio Detection
+# DeepFake Audio Detection Using CNN
 
 DeepFake Audio Detection is a deep learning project designed to identify fake or manipulated audio recordings. The project utilizes a Convolutional Neural Network (CNN) model to distinguish between genuine and fake audio clips.
 
